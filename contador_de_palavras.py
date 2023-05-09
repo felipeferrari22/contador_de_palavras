@@ -27,15 +27,15 @@ def procurar_palavras(texto):
         frequencia = contador.get(palavra.strip(), 0)
         print("A palavra",palavra.strip(),"aparece",frequencia,"vez/vezes no arquivo.")
 
-def exibir_extremos(texto):
+def maiscomum_menoscomum(texto):
     palavras = texto.lower().split()
     contador = Counter(palavras)
-    palavra_mais_frequente = contador.most_common(1)[0][0]
-    frequencia_mais_frequente = contador.most_common(1)[0][1]
-    palavra_menos_frequente = contador.most_common()[-1][0]
-    frequencia_menos_frequente = contador.most_common()[-1][1]
-    print(f'A palavra com mais aparições é "{palavra_mais_frequente}" com {frequencia_mais_frequente} aparições.')
-    print(f'A palavra com menos aparições é "{palavra_menos_frequente}" com {frequencia_menos_frequente} aparições.')
+    mais_comum = contador.most_common(1)[0][0]
+    n_mais_comum = contador.most_common(1)[0][1]
+    menos_comum = contador.most_common()[-1][0]
+    n_menos_comum = contador.most_common()[-1][1]
+    print(f'A palavra com mais aparições é "{mais_comum}" com {n_mais_comum} aparições.')
+    print(f'A palavra com menos aparições é "{menos_comum}" com {n_menos_comum} aparições.')
 
 menu = int
 while menu != 0:
@@ -66,7 +66,7 @@ while menu != 0:
         print(procurar_palavras(texto))
 
     elif menu == 5:
-            exibir_extremos(texto)
+            maiscomum_menoscomum(texto)
     
     elif menu == 0:
         print()
