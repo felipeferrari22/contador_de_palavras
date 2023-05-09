@@ -22,7 +22,7 @@ def contar_palavras(texto):
 def procurar_palavras(texto):
     palavras = texto.lower().split()
     contador = Counter(palavras)
-    palavras_procuradas = input('Digite as palavras que deseja procurar (separadas por vírgula): ').split(',')
+    palavras_procuradas = input('Insira as palavras que deseja procurar (separadas por vírgula): ').split(',')
     for palavra in palavras_procuradas:
         frequencia = contador.get(palavra.strip(), 0)
         print("A palavra",palavra.strip(),"aparece",frequencia,"vez/vezes no arquivo.")
@@ -34,8 +34,8 @@ def maiscomum_menoscomum(texto):
     n_mais_comum = contador.most_common(1)[0][1]
     menos_comum = contador.most_common()[-1][0]
     n_menos_comum = contador.most_common()[-1][1]
-    print(f'A palavra com mais aparições é "{mais_comum}" com {n_mais_comum} aparições.')
-    print(f'A palavra com menos aparições é "{menos_comum}" com {n_menos_comum} aparições.')
+    print("A palavra com mais aparições é", mais_comum, "com", n_mais_comum, "aparição/aparições.")
+    print("A palavra com menos aparições é", menos_comum, "com", n_menos_comum, "aparição/aparições.")
 
 menu = int
 while menu != 0:
@@ -49,7 +49,7 @@ while menu != 0:
     menu = int(input("Insira o número que corresponde a qual atividade você deseja realizar: "))
 
     if menu == 1:
-        arquivo = input('Digite o nome do arquivo: ')
+        arquivo = input('Insira o nome do arquivo: ')
         texto = abrir_arquivo(arquivo)
         print(texto)
     
@@ -57,9 +57,6 @@ while menu != 0:
         print(remover_acentos(texto))
 
     elif menu == 3:
-        if not 'texto' in locals():
-            print('É necessário carregar um arquivo antes de contar as palavras.')
-        else:
             contar_palavras(texto)
     
     elif menu == 4:
