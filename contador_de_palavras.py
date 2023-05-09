@@ -4,7 +4,7 @@ from collections import Counter
 with open('palavras.txt', 'r') as arq:
     texto = arq.read()
 
-def carregar_arquivo(arquivo):
+def abrir_arquivo(arquivo):
     with open(arquivo, 'r') as arq:
         texto = arq.read()
     return texto
@@ -17,7 +17,7 @@ def contar_palavras(texto):
     contador = Counter(palavras)
     ranking = contador.most_common()
     for palavra, frequencia in ranking:
-        print(f'{palavra}: {frequencia}')
+        print(f"{palavra}: {frequencia}")
 
 def procurar_palavras(texto):
     palavras = texto.lower().split()
@@ -50,7 +50,7 @@ while menu != 0:
 
     if menu == 1:
         arquivo = input('Digite o nome do arquivo: ')
-        texto = carregar_arquivo(arquivo)
+        texto = abrir_arquivo(arquivo)
         print(texto)
     
     elif menu == 2:
